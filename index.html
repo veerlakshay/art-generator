@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Futuristic AI Art Generator</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: 'Orbitron', sans-serif;
+            background: linear-gradient(135deg, #FFB3BA, #BAE1FF);
+            color: #333; 
+            transition: background 0.3s;
+        }
+        .container {
+            width: 90%;
+            max-width: 800px;
+            text-align: center;
+            background: rgba(255, 255, 255, 0.8);
+            padding: 10px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+            transition: transform 0.3s ease-in-out, background 0.3s;
+        }
+        h1 {
+            margin-bottom: 10px;
+            font-size: 2em;
+        }
+        .slider {
+            margin: 10px 0;
+        }
+        .label {
+            display: block;
+            margin-bottom: 10px;
+            font-size: 1.2em;
+        }
+        .slider input[type="range"] {
+            width: 100%;
+        }
+        .slider .range-values {
+            display: flex;
+            justify-content: space-between;
+        }
+        #generateButton {
+            padding: 10px 20px;
+            font-size: 1.2em;
+            background: rgba(255, 255, 255, 0.8);
+            color: #333; /* Darker text color */
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s, transform 0.3s;
+        }
+        #generateButton:hover {
+            background: rgba(255, 255, 255, 1);
+            transform: scale(1.1);
+        }
+        @keyframes blurIn {
+            from { filter: blur(10px); opacity: 0; }
+            to { filter: blur(0); opacity: 1; }
+        }
+        @keyframes blurOut {
+            from { filter: blur(0); opacity: 1; }
+            to { filter: blur(10px); opacity: 0; }
+        }
+        .blur-in {
+            animation: blurIn 0.2s ease-in-out;
+        }
+        .blur-out {
+            animation: blurOut 0.2s ease-in-out;
+        }
+        canvas {
+            height: 400px; 
+        }
+    </style>
+</head>
+<body>
+    <div class="container" id="artContainer">
+        <h1>AI Art Generator</h1>
+        <canvas id="artCanvas" width="600" height="400"></canvas> 
+        
+        <div class="slider">
+            <label for="shapeCount" class="label">Number of Shapes:</label>
+            <input type="range" id="shapeCount" min="5" max="50" value="15">
+            <div class="range-values">
+                <span>5</span>
+                <span>50</span>
+            </div>
+        </div>
+
+        <div class="slider">
+            <label for="shapeSize" class="label">Shape Size:</label>
+            <input type="range" id="shapeSize" min="20" max="100" value="40">
+            <div class="range-values">
+                <span>20</span>
+                <span>100</span>
+            </div>
+        </div>
+
+        <button id="generateButton">Generate</button>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
